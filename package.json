@@ -1,0 +1,25 @@
+{
+  "name": "arvind-brands--digital-kyc-hackathon",
+  "version": "1.0.0",
+  "description": "When a customer visits a store, he/she visits some areas of the store and spends more of his/her time in a particular region than any other region. This is mostly because, that particular region interests that particular customer more. This behavior is followed by all the people visiting the store and is a part of customer psychology. The region of interest varies from person to person. However, there are certain places in the store where the customer density is considerably high most of the times irrespective of the customer preference. these areas can be considered \"hotspots\" of the store.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabh-malik/Arvind-Brands--Digital-KYC-Hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishabh-malik/Arvind-Brands--Digital-KYC-Hackathon/issues"
+  },
+  "homepage": "https://github.com/rishabh-malik/Arvind-Brands--Digital-KYC-Hackathon#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "python-shell": "^0.4.0"
+  }
+}
