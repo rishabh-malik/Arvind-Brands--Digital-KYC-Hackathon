@@ -32,6 +32,15 @@ app.get("/customer/:id", function(req,res){
   });	
 });
 
+app.get("/add", function(req,res){
+  res.render('add');
+});
+
+app.get("/upload_customer", function(req,res){
+  res.render('upload_customer');
+});
+
+
 //Deploy app on server
 var port = process.env.PORT || 4000;
 var server = app.listen(port, function () {

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#212121" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Add New Customer</title>
+
+  <style type="text/css">
+    .fixer {
+      /* position: fixed; */
+      width: 25vw;
+    }
+    @media only screen and (max-width: 500px) {
+      .fixer {
+        position: relative;
+        width: auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body style="background: #212121; font-family: 'Roboto Condensed', sans-serif; padding-top: 100px">
+  <div class="container-fluid">
+    <div class="row justify-content-center" style="height: 100%">
+      <div class="col-md-3 order-sm-12">
+        <div class="card fixer" style="box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12); margin-bottom: 50px; ">
+          <h3 class="text-center" style="padding: 20px 0;">ADD NEW CUSTOMER</h3>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="Description">Name</label>
+              <input class="form-control" id="question" rows="5"></input>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                    <label for="Description">Product purchased</label>
+                    <input class="form-control" id="question" rows="5"></input>
+                  </div>
+                  <br>
+                  <br>
+                <br>
+            <br>
+            <button onclick="submit_customer()" class="btn btn-primary" style="width:100%;">Add Customer</button>
+
+          </div>
+        </div>
+      </div>
+
+</body>
+<script>
+  // Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyDqTKSOn-SOQ_PMYH4icT5LfswQFwPqiUM",
+  authDomain: "hackathon-4febb.firebaseapp.com",
+  databaseURL: "https://hackathon-4febb.firebaseio.com",
+  projectId: "hackathon-4febb",
+  storageBucket: "hackathon-4febb.appspot.com",
+  messagingSenderId: "22239613539"  
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+</script>
+</html>
