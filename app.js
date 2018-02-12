@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var fs = require("fs");
 var app = express();
 var firebase = require('firebase');
-var app = firebase.initializeApp({ 
+var fireapp = firebase.initializeApp({ 
   apiKey: "AIzaSyDqTKSOn-SOQ_PMYH4icT5LfswQFwPqiUM",
   authDomain: "hackathon-4febb.firebaseapp.com",
   databaseURL: "https://hackathon-4febb.firebaseio.com",
@@ -17,13 +17,18 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-app.get("/:id", function(req,res){
+app.get("/", function(req,res){
+ res.render('index');
+});
+
+app.get("/customer/:id", function(req,res){
   var userQuery=firebase.database().ref('users');
   const query=userQuery.orderByChild('name').equalTo(req.params.id);
+  console.log(req.params.id);
   query.on('value',snap=>{
       console.log(snap.val());
       user=snap.val();
-      res.render('index',{user:user})
+      res.render('customer',{user:user})
   });	
 });
 
