@@ -45,14 +45,18 @@
           <div class="card-body">
             <div class="form-group">
               <label for="Description">Name</label>
-              <input class="form-control" id="question" rows="5"></input>
+              <input class="form-control" id="name" rows="5"></input>
             </div>
             <br>
             <br>
             <div class="form-group">
                     <label for="Description">Product purchased</label>
-                    <input class="form-control" id="question" rows="5"></input>
+                    <input class="form-control" id="product_purchased" rows="5"></input>
                   </div>
+                  <div class="form-group">
+                      <label for="Description">Mobile No</label>
+                      <input class="form-control" id="mobile" rows="5"></input>
+                    </div>      
                   <br>
                   <br>
                 <br>
@@ -76,5 +80,17 @@
   };
   firebase.initializeApp(config);
   var database = firebase.database();
+
+  function submit_customer(){
+    var name = document.getElementById('name').value;
+    var mobile = document.getElementById('mobile').value;
+    var product_purchased = document.getElementById('product_purchased').value;
+
+   firebase.database().ref('users/').push({
+    name:name,
+    mobile:mobile,
+    product_purchased:product_purchased
+  });
+  }
 </script>
 </html>

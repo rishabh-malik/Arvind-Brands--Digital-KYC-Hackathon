@@ -31,7 +31,7 @@
        
         <%if (customers.hasOwnProperty(key)) { %>           
             <div style="color:aliceblue"><%= key%>:<%= customers[key] %></div>
-            <button onclick="Attend()">Attend</button>
+            <button onclick="Attend('<%=key%>','<%=customers[key]%>')">Attend</button>
         <% }}%>
 
 </body>
@@ -47,12 +47,13 @@
   firebase.initializeApp(config);
 
   var database = firebase.database();
-  function Attend(){
+  function Attend(customer,customerKey){
     firebase.database().ref('being-attended/').push({
-   "<%= key %>":"<%= customers[key] %>"
-  });
-    firebase.database().ref('to-be-attended/'+"<%= key %>").remove(function () {
+    customer:customerKey
+    });
+    firebase.database().ref('to-be-attended/').child(customer).remove(function () {
     console.log("removed")
+    location.href = 'http://localhost:4000/customer/'+customerKey;
   });
   }  
 </script>
