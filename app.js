@@ -21,6 +21,18 @@ app.get("/", function(req,res){
  res.render('index');
 });
 
+var customers;
+app.get("/allCustomers",function(req,res){
+  var customersRef = firebase.database().ref('to-be-attended/');
+	customersRef.on('value', function (snapshot) {
+		customers = snapshot.val();
+		console.log(customers)	
+	});
+	res.render('allCustomer', {
+		customers
+	});
+});
+
 app.get("/customer/:id", function(req,res){
   var userQuery=firebase.database().ref('users');
   const query=userQuery.orderByChild('name').equalTo(req.params.id);
@@ -37,7 +49,7 @@ app.get("/add", function(req,res){
 });
 
 app.get("/upload_customer", function(req,res){
-  res.render('upload_customer');
+  res.render('upload');
 });
 
 
