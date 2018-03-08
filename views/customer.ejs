@@ -20,10 +20,119 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <title>Customer</title>
+  <style>
+    body {
+background: lightblue;
+}
+.container > div {
+width: 300px;
+height: 400px;
+position: absolute;
+transform: translate(-50%, -50%);
+top: 50%;
+left: 50%;
+border: none;
+z-index: 2;
+transition: all 0.4s;
+border-radius: 5px;
+}
+.container > div:first-child {
+background-image: url("../public/kautuk.jpg");
+background-position: center;
+background-size: cover;
+cursor: pointer;
+box-shadow: 0 36px 10px -20px rgba(0, 0, 0, 0.2);
 
+}
+.container > div:last-child {
+background: #fff;
+z-index: 1;
+transition-delay: 0s;
+}
+.container.move > div:first-child {
+transform: translate(-50%, calc(-50% - 40px));
+}
+.container.move > div:last-child {
+transform: translate(-50%, calc(-50% + 40px)) scale(1.1);
+
+}
+
+.container.final > div:first-child { 
+transform: translate(-50%, 0);
+width: calc(100vh - 100px);
+height: 200px;
+top: 20px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+box-shadow: none;
+}
+.container.final > div:last-child {
+transform: translate(-50%, 0);
+transition-delay: 0.04s;
+width: calc(100vh - 100px);
+height: calc(100vh - 80px);
+top: 40px;
+border-radius: 0;
+}
+.info .address {
+position: absolute;
+bottom: 10px;
+font-family: 'Helvetica';
+font-size: 12px;
+color: #aaa;
+left: 20px;
+transition: all 0.3s;
+}
+.info .address div {
+margin-bottom: 5px;
+}
+.info .address .no {
+float: left;
+}
+.info .address .rank {
+float: right;
+}
+.violet {
+color: LightSlateGrey;
+}
+.comments ul {
+list-style: none;
+padding: 0;
+margin: 0;
+position: relative;
+}
+.comments ul li {
+display: inline-block;
+position: relative;
+width: 30px;
+}
+.comments ul li div {
+width: 30px;
+height: 30px;
+background: #ddd;
+position: absolute;
+top: -20px;
+left: 0;
+border-radius: 50%;
+border: 1px solid #aaa;
+}
+.comments ul li:nth-child(2) div {
+left: -10px !important;
+}
+.comments ul li:nth-child(3) div {
+left: -20px;
+}
+.comments ul li:nth-child(4) div {
+left: -30px;
+}
+.container.final .address {
+bottom: calc(100% - 280px);
+}
+
+    </style>
 </head>
     <body>
-<div class="card" style="width: 18rem;">
+<!-- <div class="card" style="width: 18rem;">
         <img src="../public/kautuk.jpg" height="150" width="150">
         <div class="card-body">
                 <% var keys = Object.keys(user) %>
@@ -37,7 +146,53 @@
           <%})%>
         
         </div>
-      </div>
+      </div> -->
+
+      <% var keys = Object.keys(user) %>
+                <% console.log(keys[0])%>
+                <% keys.forEach( function(key) { %>
+      <div class="container">
+        <div class="img"></div>
+        <div class="info">
+          <div class="address">
+            <div>
+              <%=user[key].name%>
+            </div>
+            <div>
+              <div class="no">
+                <h8>Past Purchases: </h8>
+          <p><%=user[key].product_purchased%></p>
+              </div>
+              <%var key_=keys[0]%>
+              <div class="rank">
+                <i class="ion-star violet"></i>
+                <i class="ion-star violet"></i>
+                <i class="ion-star violet"></i>
+                <i class="ion-star violet"></i>
+                <i class="ion-star"></i>
+              </div>
+              <div style="clear: both;"></div>
+            </div>
+            <div class="comments">
+              <ul>
+                <li>
+                  <div class="img"></div>
+                </li>
+                <li>
+                  <div class="img"></div>
+                </li>
+                <li>
+                  <div class="img"></div>
+                </li>
+                <li>
+                  <div class="img"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>  
+      </div>          
+      <%})%>
       </body>
       <script>
 
@@ -51,4 +206,12 @@
   });
       }
       </script>
+      <script>
+        $(function() {
+      var counter = 0;
+      $('.container').click(function() {
+        $(this).toggleClass('move');
+      });
+    });
+        </script>
       </html>
