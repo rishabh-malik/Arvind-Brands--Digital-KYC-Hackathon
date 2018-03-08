@@ -34,8 +34,8 @@ app.get("/allCustomers",function(req,res){
 });
 
 app.get("/customer/:id", function(req,res){
-  var userQuery=firebase.database().ref('being-attended/');
-  const query=userQuery.orderByChild('customer').equalTo(req.params.id);
+  var userQuery=firebase.database().ref('users/');
+  const query=userQuery.orderByChild('name').equalTo(req.params.id);
   console.log(req.params.id);
   query.on('value',snap=>{
       console.log(snap.val());
