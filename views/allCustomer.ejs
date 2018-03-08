@@ -24,14 +24,146 @@
   <title>All Customers currently in store</title>
 
 </head>
+<style>
+  body {
+  background: #ddd;
+}
+div.content {
+  width: 360px;
+}
+.wrapper {
+  background: #fff;
+  margin: 3em;
+  width: 360px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all 375ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.wrapper.enlarge {
+  height: 380px;
+}
+header {
+  padding: 30px 10px;
+  height: 50px;
+}
 
-<body style="background: #212121; font-family: 'Roboto Condensed', sans-serif;">
+header > div {
+  float: left;
+  padding-left: 10px;
+}
+header > div:nth-child(2) {
+  padding-top: 5px;  
+}
+
+header .circle {
+  width: 50px;
+  height: 50px;
+  background-color: tomato;
+  border-radius: 50px;
+}
+
+.line {
+  height: 14px;
+  min-width: 40px;
+  background-color: #eee;
+}
+.title {
+  width: 250px;
+  background-color: tomato;
+}
+
+.sub-title {
+  width: 100px;
+  margin-top: 10px;
+  background-color: tomato;
+}
+
+.footer {
+  padding: 20px;
+}
+
+.main {
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  opacity: 0;
+  transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.main.show {
+  opacity: 1;
+  transition: all 250ms cubic-bezier(0.4, 0.0, 0.2, 1) 125ms;
+}
+
+.main .thumb {
+  width: 90px;
+  border-radius: 5px;
+  height: 90px;
+  background: #eee;
+  float: left;
+  margin: 15px 10px;
+}
+
+.footer .line {
+  margin-top: 20px;
+  height: 15px;
+}
+
+.footer .line:last-child {
+  width: 190px;
+}
+</style>
+
+<body>
        
-    <% for (var key in customers) { %>
+    <!-- <% for (var key in customers) { %>
        
         <%if (customers.hasOwnProperty(key)) { %>           
-            <div style="color:aliceblue"><%= key%>:<%= customers[key] %></div>
+            <div style="color:aliceblue"><%= customers[key] %></div>
             <button onclick="Attend('<%=key%>','<%=customers[key]%>')">Attend</button>
+        <% }}%> -->
+
+        <% for (var key in customers) { %>
+          <%if (customers.hasOwnProperty(key)) { %>  
+        <div class="wrapper">
+          <div class="content">
+            <header>
+              <div>
+                <div class="circle">
+                </div>
+              </div>
+              <div>
+                <div class="line title"><%= customers[key] %>
+                </div>
+                <div class="line sub-title">
+                </div>
+              </div>
+              <div style="clear: both">
+              </div>
+            </header>
+            <div class="main">
+              <div class="thumb">
+              </div>
+              <div class="thumb">
+              </div>
+              <div class="thumb">
+              </div>
+              <div style="clear: both">
+              </div>
+            </div>
+            <div class="footer">
+              <div class="line">
+              </div>
+              <div class="line">
+              </div>
+            </div>
+          </div>
+        </div>
         <% }}%>
 
 </body>
@@ -47,6 +179,15 @@
     location.href = 'http://localhost:4000/customer/'+customerKey;
   });
   }  
+</script>
+<script>
+    $(function() {
+var wrapper = $('.wrapper');
+wrapper.click(function() {
+$(this).toggleClass('enlarge');
+$('.main').toggleClass('show');
+});
+})
 </script>
 
 </html>
