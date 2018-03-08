@@ -24,7 +24,7 @@
   <title>All Customers currently in store</title>
 
 </head>
-<style>
+<!-- <style>
   body {
   background: #ddd;
 }
@@ -117,18 +117,18 @@ header .circle {
 .footer .line:last-child {
   width: 190px;
 }
-</style>
+</style> -->
 
 <body>
        
-    <!-- <% for (var key in customers) { %>
+    <% for (var key in customers) { %>
        
         <%if (customers.hasOwnProperty(key)) { %>           
             <div style="color:aliceblue"><%= customers[key] %></div>
             <button onclick="Attend('<%=key%>','<%=customers[key]%>')">Attend</button>
-        <% }}%> -->
+        <% }}%>
 
-        <% for (var key in customers) { %>
+        <!-- <% for (var key in customers) { %>
           <%if (customers.hasOwnProperty(key)) { %>  
         <div class="wrapper">
           <div class="content">
@@ -164,7 +164,7 @@ header .circle {
             </div>
           </div>
         </div>
-        <% }}%>
+        <% }}%> -->
 
 </body>
 <script>
