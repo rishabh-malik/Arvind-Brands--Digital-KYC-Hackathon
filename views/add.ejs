@@ -23,21 +23,40 @@
   <title>Add New Customer</title>
 
   <style type="text/css">
-    .fixer {
-      /* position: fixed; */
-      width: 25vw;
-    }
-    @media only screen and (max-width: 500px) {
-      .fixer {
-        position: relative;
-        width: auto;
-      }
-    }
-  </style>
+  
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(-128deg, rgba(255, 181, 32, 0.93) 3%, rgba(239, 39, 153, 0.93) 88%, rgba(237, 18, 171, 0.93) 100%);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background-color: #F3F4F5;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+::selection {
+  background-color: #F5617A;
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: #F5617A;
+  color: #fff;
+}
+</style>
 
 </head>
 
-<body style="background: #212121; font-family: 'Roboto Condensed', sans-serif; padding-top: 100px">
+<body>
   <div class="container-fluid">
     <div class="row justify-content-center" style="height: 100%">
       <div class="col-md-3 order-sm-12">
@@ -67,10 +86,9 @@
           </div>
         </div>
       </div>
-
+      
 </body>
 <script>
-  
   var database = firebase.database();
 
   function submit_customer(){
