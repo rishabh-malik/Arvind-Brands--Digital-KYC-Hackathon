@@ -1,11 +1,22 @@
 # Arvind-Brands--Digital-KYC-Hackathon
-When a customer visits a store, he/she visits some areas of the store and spends more of his/her time in a particular region than any other region. This is mostly because, that particular region interests that particular customer more. This behavior is followed by all the people visiting the store and is a part of customer psychology. The region of interest varies from person to person. However, there are certain places in the store where the customer density is considerably high most of the times irrespective of the customer preference. these areas can be considered "hotspots" of the store.
 
-Our aim is to utilize the already installed CCTV cameras in the store and using computer vision techniques, identify the potential hotspots of the store.
+At this time when most of the stores are providing similar products at a similar price range, the only thing that ensures that the customer will come back to that store in future is the experience they have while they were shopping. Good customer experience means a happy customer and happy customers always come back. Our project has two parts.
 
-It is useful to gain information about what type of products or what section of store interests the customer more than the other. This information can be used to identify some problems like,
+#### PART 1
 
-1.customers are showing less interest in which products?
-2.where should the less interesting products be moved so as to get customer's attention?
-3.where should a newly launched product be placed to ensure max sales
-4.in case of advertising about something, where should a poster be placed to get maximum attention of customers
+Part 1 focuses on identifying and prioritizing key customers before they enter the store. We will be using facial recognition technique to identify a customer using a camera installed at the store entrance. As soon as the customer enters the store, Our system identifies the customer and sends a broadcast notification on mobile phones of all the sales persons present inside the store. The sales person can then choose to attend that customer. As soon as the salesperson accepts to attend the person, the previous purchase history of the customer is displayed on his/her phone and the notification disappears from the devices of other sales persons. This helps the store to
+
+-Identify returning customers
+-Provide personalized suggestions to these customers
+-Provide loyalty and bonus to them
+
+The previous purchase history of the customer can be used to give personalized suggestions to that customer.
+
+#### PART2
+
+Part 2 focuses on mapping customer journey and identifying customer behaviour inside the store. We will be using the preinstalled cctv cameras present inside the store to identify the movement of the customers inside the store. The density of customers present in a particular region of the store is calculated after every short duration of time and this data is averaged over the whole day to create a heatmap of the customer distribution over the whole store. This heatmap can be used to :
+
+-Identify points of interests inside the store for efficient advertisement placement such that it has the maximum reach
+-find out favourable regions where a newly launched product can be placed
+-identify regions where the customer are not visiting regularly and find out why
+-identify regions with high customr participation but low sales
